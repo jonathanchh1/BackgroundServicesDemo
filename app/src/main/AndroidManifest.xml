@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.emi.threadmanagementdemo">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+"
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.emi.jobservices.JobActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.emi.advancedworkmanager.AdvancedWorkerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.emi.basicworkmanager.WorkerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.emi.foregroundservices.ForegroundActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,10 +101,14 @@
             android:name="com.emi.boundservices.BoundServices"
             android:enabled="true"
             android:exported="false" />
-
-        <service android:name="com.emi.foregroundservices.ForegroundServices"
+        <service
+            android:name="com.emi.foregroundservices.ForegroundServices"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
+        <service android:name="com.emi.jobservices.CustomJobServices"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>
